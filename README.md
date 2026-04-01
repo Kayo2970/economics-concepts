@@ -12,8 +12,8 @@ We are building the **Interactive Economics Explorer**, a Next.js-powered web ap
 - **Project Goal:** Translate abstract economic theories (like Supply & Demand) into interactive, tactile experiences.
 - **Current Status:**
     - [x] Premium Landing Page implemented.
-    - [x] **Supply & Demand Sandbox Live:** Fully interactive graph with real-time equilibrium recalculation.
-    - [ ] **Roadmap Expanded:** Added 4 new Managerial Economics modules (Forecasting Lab, Consumer Choice IC Analysis, Market Matrix, and Policy Balancer).
+    - [x] **Core Simulations Live (4/4):** Supply & Demand, Price Elasticity, Opportunity Cost (PPF), and Marginal Utility are all fully interactive and connected.
+    - [ ] **Roadmap (Next):** Implement Managerial Economics modules (Forecasting Lab, Consumer Choice, Market Matrix).
 
 ---
 

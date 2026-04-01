@@ -2,95 +2,84 @@
 
 import React from "react";
 import {
-  ComposedChart,
-  Line,
-  Area,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
-  Label
+  Cell,
+  Label,
+  AreaChart,
+  Area
 } from "recharts";
 
-interface DataPoint {
-  slices: number;
-  totalUtility: number;
-  marginalUtility: number;
-}
-
 interface Props {
-  data: DataPoint[];
+  data: any[];
 }
 
 const MarginalUtilityChart: React.FC<Props> = ({ data }) => {
   return (
-    <div className="w-full h-[500px] bg-white rounded-xl p-6 shadow-xl border border-slate-200">
+    <div className="w-full h-full min-h-[400px]">
       <ResponsiveContainer width="100%" height="100%">
-        <ComposedChart data={data} margin={{ top: 40, right: 40, left: 20, bottom: 40 }}>
+        <AreaChart data={data} margin={{ top: 40, right: 40, left: 20, bottom: 40 }}>
           <defs>
-            <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="colorTu" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
               <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
             </linearGradient>
+            <linearGradient id="colorMu" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
+              <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+            </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.05)" vertical={false} />
           <XAxis 
             dataKey="slices" 
-            stroke="#64748b"
-            tick={{ fill: "#64748b" }}
+            stroke="rgba(255, 255, 255, 0.2)"
+            tick={{ fill: "rgba(255, 255, 255, 0.4)", fontSize: 12, fontWeight: 500 }}
+            axisLine={false}
           >
-            <Label value="Slices of Pizza" offset={-20} position="insideBottom" fill="#475569" fontWeight="600" />
+            <Label value="Slices of Pizza" offset={-20} position="insideBottom" fill="rgba(255, 255, 255, 0.2)" fontSize={10} fontWeight="800" className="uppercase tracking-[0.2em]" />
           </XAxis>
-          
           <YAxis 
-            yAxisId="left"
-            stroke="#3b82f6"
-            tick={{ fill: "#3b82f6" }}
+            stroke="rgba(255, 255, 255, 0.2)"
+            tick={{ fill: "rgba(255, 255, 255, 0.4)", fontSize: 12, fontWeight: 500 }}
+            axisLine={false}
           >
-            <Label value="Total Utility" angle={-90} position="insideLeft" style={{ textAnchor: "middle" }} offset={0} fill="#3b82f6" fontWeight="600" />
+            <Label value="Utility Units" angle={-90} position="insideLeft" style={{ textAnchor: "middle" }} offset={0} fill="rgba(255, 255, 255, 0.2)" fontSize={10} fontWeight="800" className="uppercase tracking-[0.2em]" />
           </YAxis>
-          
-          <YAxis 
-            yAxisId="right" 
-            orientation="right"
-            stroke="#f59e0b"
-            tick={{ fill: "#f59e0b" }}
-          >
-            <Label value="Marginal Utility" angle={90} position="insideRight" style={{ textAnchor: "middle" }} offset={0} fill="#f59e0b" fontWeight="600" />
-          </YAxis>
-
           <Tooltip 
-            contentStyle={{ backgroundColor: "#1e293b", border: "none", borderRadius: "8px", color: "#fff" }}
-            itemStyle={{ color: "#fff" }}
+            contentStyle={{ backgroundColor: "rgba(15, 23, 42, 0.9)", backdropFilter: "blur(8px)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "16px", color: "#fff", padding: "12px", boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.5)" }}
+            itemStyle={{ color: "#fff", fontSize: "14px", fontWeight: 700 }}
+            labelStyle={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "10px", marginBottom: "4px", fontWeight: 800, textTransform: "uppercase" }}
+            cursor={{ stroke: 'rgba(255, 255, 255, 0.1)', strokeWidth: 1 }}
           />
-          <Legend verticalAlign="top" height={36}/>
-          
+
           <Area
-            yAxisId="left"
             type="monotone"
             dataKey="totalUtility"
-            fill="url(#colorTotal)"
             stroke="#3b82f6"
-            strokeWidth={3}
-            name="Total Utility"
+            strokeWidth={4}
+            fillOpacity={1}
+            fill="url(#colorTu)"
+            name="Total Utility (TU)"
           />
-          
-          <Line
-            yAxisId="right"
+
+          <Area
             type="monotone"
             dataKey="marginalUtility"
-            stroke="#f59e0b"
+            stroke="#10b981"
             strokeWidth={4}
-            dot={{ r: 6, fill: "#f59e0b", strokeWidth: 2, stroke: "#fff" }}
-            activeDot={{ r: 8, strokeWidth: 0 }}
-            name="MarginalUtility"
+            fillOpacity={1}
+            fill="url(#colorMu)"
+            name="Marginal Utility (MU)"
           />
-        </ComposedChart>
+        </AreaChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default MarginalUtility-Chart;
+export default MarginalUtilityChart;

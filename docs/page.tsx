@@ -2,25 +2,20 @@
 
 import { useState } from "react";
 import SupplyDemandSandbox from "@/modules/SupplyDemandSandbox";
+import UtilityPizzaParty from "@/modules/UtilityPizzaParty";
 import ElasticityRevenue from "@/modules/ElasticityRevenue";
 import OpportunityCostPPF from "@/modules/OpportunityCostPPF";
-import UtilityPizzaParty from "@/modules/UtilityPizzaParty";
 
 export default function Home() {
   const [activeModule, setActiveModule] = useState<string | null>(null);
 
   const renderModule = () => {
     switch (activeModule) {
-      case 'supply-demand':
-        return <SupplyDemandSandbox onBack={() => setActiveModule(null)} />;
-      case 'elasticity':
-        return <ElasticityRevenue onBack={() => setActiveModule(null)} />;
-      case 'ppf':
-        return <OpportunityCostPPF onBack={() => setActiveModule(null)} />;
-      case 'pizza-utility':
-        return <UtilityPizzaParty onBack={() => setActiveModule(null)} />;
-      default:
-        return null;
+      case 'supply-demand': return <SupplyDemandSandbox onBack={() => setActiveModule(null)} />;
+      case 'utility-pizza': return <UtilityPizzaParty onBack={() => setActiveModule(null)} />;
+      case 'elasticity-revenue': return <ElasticityRevenue onBack={() => setActiveModule(null)} />;
+      case 'opportunity-cost': return <OpportunityCostPPF onBack={() => setActiveModule(null)} />;
+      default: return null;
     }
   };
 
@@ -103,21 +98,21 @@ export default function Home() {
             desc="Visualizing why the first pizza slice hits harder than the fifth."
             color="amber"
             icon="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-            onClick={() => setActiveModule('pizza-utility')}
+            onClick={() => setActiveModule('utility-pizza')}
           />
           <ModuleCard 
             title="Price Elasticity"
             desc="How sensitve consumers really are to sudden price changes."
             color="blue"
             icon="M7 11l5-5m0 0l5 5m-5-5v12"
-            onClick={() => setActiveModule('elasticity')}
+            onClick={() => setActiveModule('elasticity-revenue')}
           />
           <ModuleCard 
             title="Opportunity Cost"
             desc="The choice made versus the value of what was left behind."
             color="rose"
             icon="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
-            onClick={() => setActiveModule('ppf')}
+            onClick={() => setActiveModule('opportunity-cost')}
           />
         </div>
       </section>
@@ -161,7 +156,7 @@ function ModuleCard({ title, desc, color, icon, onClick }: { title: string; desc
       </p>
       <button 
         onClick={onClick}
-        className="mt-auto w-full py-3 bg-white/5 border border-white/5 rounded-2xl text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all shadow-xl"
+        className="mt-auto px-4 py-2 border border-white/10 rounded-xl text-xs font-bold hover:bg-white hover:text-black transition-all"
       >
         Launch Simulation
       </button>

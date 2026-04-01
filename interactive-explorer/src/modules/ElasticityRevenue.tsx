@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { generateLinearPoints } from "@/utils/economicsMath";
 import ElasticityChart from "@/components/charts/ElasticityChart";
 import { TrendingUp, TrendingDown, Activity, Info } from "lucide-react";
 
-const ElasticityRevenue: React.FC = () => {
+interface Props {
+  onBack: () => void;
+}
+
+const ElasticityRevenue: React.FC<Props> = ({ onBack }) => {
   const [price, setPrice] = useState(50);
   const [isElastic, setIsElastic] = useState(false);
-  const [prevRevenue, setPrevRevenue] = useState(0);
 
   const a = 100;
   const b = isElastic ? 1.5 : 0.3;
@@ -18,100 +21,88 @@ const ElasticityRevenue: React.FC = () => {
   const quantity = Math.max(0, a - b * price);
   const revenue = price * quantity;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPrevRevenue(revenue);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [revenue]);
-
-  const revenueDiff = revenue - prevRevenue;
-
-  return (J
-    <div className="flex flex-col gap-8 p-8 max-w-6xl mx-auto bg-slate-50 min-h-screen">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-4x font-extrabold text-slate-900 tracking-tight">Price Elasticity & Revenue</h1>
-        <p className="text-lg text-slate-600">Explore how price changes affect total revenue based on good type.</p>
+  return (
+    <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white">
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg">Price Elasticity & Revenue</h1>
+          <p className="text-white/40 max-w-2xl">Explore how price changes affect total revenue based on good type (Necessities vs. Luxuries).</p>
+        </div>
+        <button 
+          onClick={onBack}
+          className="px-6 py-3 glass hover:bg-white/10 rounded-2xl text-sm font-bold transition-all shadow-xl"
+        >
+          ← Back Home
+        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <ElasticityChart 
-            demandPoints={demandPoints} 
-            price={price} 
-            quantity={Math.round(quantity * 100) / 100} 
-            isElastic={isElastic} 
-          />
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+            <ElasticityChart 
+              demandPoints={demandPoints} 
+              price={price} 
+              quantity={Math.round(quantity * 100) / 100} 
+              isElastic={isElastic} 
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col gap-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
-          <section className="flex flex-col gap-4">
-            <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+        <div className="flex flex-col gap-6">
+          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-4">
+            <h2 className="text-xl font-bold text-white/90 flex items-center gap-2 tracking-tight">
               <Activity className="w-5 h-5 text-blue-500" /> Market Conditions
             </h2>
             
-            <div className="flex bg-slate-100 p-1 rounded-xl">
+            <div className="flex bg-white/5 p-1 rounded-2xl border border-white/5 mb-2">
               <button 
                 onClick={() => setIsElastic(false)}
-                className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all ${!IsElastic ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`}>
-               Necessity
+                className={`flex-1 py-3 rounded-xl text-xs font-bold transition-all tracking-widest ${!isElastic ? 'bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] scale-[1.02]' : 'text-white/30 hover:text-white/50'}`}>
+               NECESSITY
               </button>
               <button 
                 onClick={() => setIsElastic(true)}
-                className={`flex-1 py-2 rounded-lg text-sm font-semibold transition-all ${isElastic ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`p}>
-               Luxury
+                className={`flex-1 py-3 rounded-xl text-xs font-bold transition-all tracking-widest ${isElastic ? 'bg-emerald-600 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)] scale-[1.02]' : 'text-white/30 hover:text-white/50'}`}>
+               LUXURY
               </button>
             </div>
-            <p className="text-xs text-slate-500 italic flex items-start gap-1">
-              <Info className="w-3 h-3 mt-0.5 shrink-0" />
-              {isElastic ? "Luxuries have high elasticity. Small price drops lead to large quantity gains." : "Necessities are inelastic. People buy them regardless of price changes."}
+            <p className="text-xs text-white/40 italic flex items-start gap-1 p-3 bg-white/5 rounded-xl">
+              <Info className="w-3 h-3 mt-0.5 shrink-0 text-white/20" />
+              {isElastic ? "Luxuries have high elasticity. Consumers are very sensitive to price drops." : "Necessities have low elasticity. Demand remains stable despite price hikes."}
             </p>
-          </section>
+          </div>
 
-          <section className="flex flex-col gap-5 pt-6 border-t border-slate-100">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-amber-500" />
-              <h2 className="text-xl font-bold text-slate-800">Price Setting</h2>
+          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+            <div className="flex justify-between items-center">
+               <h2 className="text-xl font-bold text-white/90 tracking-tight">Price Setting</h2>
+               <span className="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-lg text-sm font-bold border border-amber-500/20">${price}</span>
             </div>
-            <div className="space-y-4">
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-between items-center">
-                  <label className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Unit Price (P)</label>
-                  <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-bold">${price}</span>
-                </div>
-                <input 
-                  type="range" 
-                  min="0" max="100" 
-                  value={price} 
-                  onchange={(e) => setPrice(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
-              </div>
-            </div>
-          </section>
+            <input 
+              type="range" 
+              min="0" max="100" 
+              value={price} 
+              onChange={(e) => setPrice(Number(e.target.value))}
+              className={`w-full h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer ${isElastic ? 'accent-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.3)]' : 'accent-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]'}`}
+            />
+          </div>
 
-          <section className="mt-4 p-6 bg-slate-900 rounded-2xl text-white shadow-inner flex flex-col gap-4">
-            <h3 className="font-bold text-slate-400 uppercase text-xs tracking-widest text-center border-b border-slate-800 pb-2">Revenue Analysis</h3>
-            <div className="flex items-center justify-between">
-              <div className="flex flex-col">
-                <span className="text-slate-500 text-[10px] font-bold uppercase">Total Revenue</span>
-                <span className="font-mono text-4xl font-bold text-emerald-400">${Math.round(revenue)}</span>
+          <div className="glass bg-white/5 p-8 rounded-[32px] border-white/10 shadow-2xl flex flex-col gap-6">
+            <h3 className="font-bold text-white/20 uppercase text-xs tracking-widest text-center border-b border-white/5 pb-2">Analysis Results</h3>
+            <div className="flex flex-col items-center gap-1">
+                <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest">Total Revenue</span>
+                <span className={`text-4xl font-black drop-shadow-2xl ${isElastic ? 'text-emerald-400' : 'text-blue-400'}`}>${Math.round(revenue)}</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-2">
+              <div className="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/5 shadow-inner">
+                <span className="text-white/20 text-[10px] font-bold uppercase mb-1">Sales</span>
+                <span className="font-mono text-xl font-bold text-white text-center tracking-widest">{Math.round(quantity)}</span>
               </div>
-              <div className={`p-3 rounded-full ${revenueDiff > 0 ? 'bg-emerald-500/10' : revenueDiff < 0 ? 'bg-red-500/10' : 'bg-slate-800'}`}>
-                {revenueDiff > 0 ? <TrendingUp className="text-emerald-500" /> : revenueDiff < 0 ? <TrendingDown className="text-red-500" /> : <Activity className="text-slate-400" />}
+              <div className="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/5 shadow-inner">
+                <span className="text-white/20 text-[10px] font-bold uppercase mb-1">Elasticity</span>
+                <span className="font-mono text-xl font-bold text-white text-center tracking-widest">{isElastic ? '1.50' : '0.30'}</span>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col items-center p-3 bg-slate-800 rounded-xl">
-                <span className="text-slate-500 text-[10px] font-bold uppercase mb-1">Quantity (Q)</span>
-                <span className="font-mono text-xl font-bold text-blue-400">{Math.round(quantity)}</span>
-              </div>
-              <div className="flex flex-col items-center p-3 bg-slate-800 rounded-xl">
-                <span className="text-slate-500 text-[10px] font-bold uppercase mb-1">Elasticity</span>
-                <span className="font-mono text-xl font-bold text-blue-400">{isElastic ? '1.5' : '0.3'}</span.
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
       </div>
     </div>
