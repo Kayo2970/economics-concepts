@@ -4,11 +4,7 @@ import React, { useState, useMemo } from "react";
 import MarginalUtilityChart from "@/components/charts/MarginalUtilityChart";
 import { calculateMarginalUtility } from "@/utils/economicsMath";
 
-interface Props {
-  onBack: () => void;
-}
-
-const UtilityPizzaParty: React.FC<Props> = ({ onBack }) => {
+export default function UtilityPizzaParty({ onBack }: { onBack: () => void }) {
   const [slices, setSlices] = useState(0);
 
   const totalUtilitySchedule = [0, 12, 22, 30, 36, 40, 42, 42, 40, 36, 30];
@@ -106,6 +102,4 @@ const UtilityPizzaParty: React.FC<Props> = ({ onBack }) => {
       </div>
     </div>
   );
-};
-
-export default UtilityPizzaParty;
+}

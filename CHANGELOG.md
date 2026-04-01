@@ -4,6 +4,17 @@ All changes made by the AI coding agent are recorded here.
 
 ---
 
+## 2026-04-01T07:35:00
+
+**Agent Action:** Simplified `OpportunityCostPPF.tsx` component structure and completed Git sync.
+
+**Changes:**
+- Refactored `OpportunityCostPPF.tsx` to use named `export default function` instead of an arrow function variable.
+- Cleaned up unused Lucide-React icon imports (`Info`).
+- Synchronized latest component state across all project documentation and Git.
+
+---
+
 ## 2026-04-01T07:25:00
 
 **Agent Action:** Completed the 4 core simulations and fully linked the landing page.

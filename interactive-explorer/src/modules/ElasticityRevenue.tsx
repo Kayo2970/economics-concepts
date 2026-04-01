@@ -3,13 +3,9 @@
 import React, { useState, useMemo } from "react";
 import { generateLinearPoints } from "@/utils/economicsMath";
 import ElasticityChart from "@/components/charts/ElasticityChart";
-import { TrendingUp, TrendingDown, Activity, Info } from "lucide-react";
+import { Activity, Info } from "lucide-react";
 
-interface Props {
-  onBack: () => void;
-}
-
-const ElasticityRevenue: React.FC<Props> = ({ onBack }) => {
+export default function ElasticityRevenue({ onBack }: { onBack: () => void }) {
   const [price, setPrice] = useState(50);
   const [isElastic, setIsElastic] = useState(false);
 
@@ -107,6 +103,4 @@ const ElasticityRevenue: React.FC<Props> = ({ onBack }) => {
       </div>
     </div>
   );
-};
-
-export default ElasticityRevenue;
+}

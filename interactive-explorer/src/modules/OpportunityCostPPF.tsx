@@ -3,13 +3,9 @@
 import React, { useState, useMemo } from "react";
 import PPFChart from "@/components/charts/PPFChart";
 import { generatePPFPoints, Point } from "@/utils/economicsMath";
-import { ArrowRightLeft, Book, Cpu, Info } from "lucide-react";
+import { ArrowRightLeft, Book, Cpu } from "lucide-react";
 
-interface Props {
-  onBack: () => void;
-}
-
-const OpportunityCostPPF: React.FC<Props> = ({ onBack }) => {
+export default function OpportunityCostPPF({ onBack }: { onBack: () => void }) {
   const totalResources = 10000;
   const [books, setBooks] = useState(50);
 
@@ -112,6 +108,4 @@ const OpportunityCostPPF: React.FC<Props> = ({ onBack }) => {
       </div>
     </div>
   );
-};
-
-export default OpportunityCostPPF;
+}

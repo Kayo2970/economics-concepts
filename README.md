@@ -13,6 +13,7 @@ We are building the **Interactive Economics Explorer**, a Next.js-powered web ap
 - **Current Status:**
     - [x] Premium Landing Page implemented.
     - [x] **Core Simulations Live (4/4):** Supply & Demand, Price Elasticity, Opportunity Cost (PPF), and Marginal Utility are all fully interactive and connected.
+    - [x] **Refactoring:** OpportunityCostPPF component structure simplified for better maintainability.
     - [ ] **Roadmap (Next):** Implement Managerial Economics modules (Forecasting Lab, Consumer Choice, Market Matrix).
 
 ---
