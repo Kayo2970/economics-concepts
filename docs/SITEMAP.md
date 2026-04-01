@@ -19,10 +19,10 @@ graph TD
     Modules --> OppCost[⏳ The 24-Hour Pie (Opportunity Cost)]
     
     %% Managerial Economics Extensions
-    Modules --> Forecasting[🔮 The Forecast Lab (Regression Analysis)]
-    Modules --> Consume[🍰 Indifference Curve (Consumer Choice)]
-    Modules --> Compare[⚔️ Market Matrix (Compare Structures)]
-    Modules --> Policy[🏦 The Policy Balancer (Macro Tools)]
+    Modules --> Forecasting[🔮 Demand Forecasting Lab]
+    Modules --> Consume[🍩 Consumer Equilibrium IC]
+    Modules --> Compare[⚔️ Market Structure Matrix]
+    Modules --> Policy[🏦 Macro Policy Balancer]
     
     %% Sub-views inside Modules
     SupDem --> SupDemInfo[Theory Breakdown]

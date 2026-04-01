@@ -142,6 +142,7 @@ function Slider({ label, min, max, value, onChange, color, step = 1 }: { label: 
         min={min} max={max} step={step}
         value={value} 
         onChange={(e) => onChange(Number(e.target.value))}
+        aria-label={label}
         className={`w-full h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer ${accentMap[color]} shadow-[0_0_10px_rgba(0,0,0,0.4)]`}
       />
     </div>
