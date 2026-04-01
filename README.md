@@ -10,7 +10,9 @@ We are building the **Interactive Economics Explorer**, a Next.js-powered web ap
 
 - **App Directory:** [`./interactive-explorer/`](./interactive-explorer/)
 - **Project Goal:** Translate abstract economic theories (like Supply & Demand) into interactive, tactile experiences.
-- **Current Status:** Premium Landing Page implemented with glassmorphism and modern UI.
+- **Current Status:**
+    - [x] Premium Landing Page implemented.
+    - [x] **Supply & Demand Sandbox Live:** Fully interactive graph with real-time equilibrium recalculation and premium dark-mode UI.
 
 ---
 

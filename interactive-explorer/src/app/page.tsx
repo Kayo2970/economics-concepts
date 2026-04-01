@@ -1,4 +1,20 @@
+"use client";
+
+import { useState } from "react";
+import SupplyDemandSandbox from "@/modules/SupplyDemandSandbox";
+
 export default function Home() {
+  const [activeModule, setActiveModule] = useState<string | null>(null);
+
+  if (activeModule === 'supply-demand') {
+    return (
+      <div className="min-h-screen relative bg-[#0a0a0a] text-white flex flex-col font-sans overflow-x-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-grid z-0 opacity-40" />
+        <SupplyDemandSandbox onBack={() => setActiveModule(null)} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen relative bg-[#0a0a0a] text-white flex flex-col font-sans overflow-x-hidden">
       {/* Decorative Background Elements */}
@@ -62,6 +78,7 @@ export default function Home() {
             desc="The fundamental relationship that determines market clearing prices."
             color="emerald"
             icon="M13 17l5-5m0 0l-5-5m5 5H6"
+            onClick={() => setActiveModule('supply-demand')}
           />
           <ModuleCard 
             title="Marginal Utility"
@@ -102,7 +119,7 @@ export default function Home() {
   );
 }
 
-function ModuleCard({ title, desc, color, icon }: { title: string; desc: string; color: string; icon: string }) {
+function ModuleCard({ title, desc, color, icon, onClick }: { title: string; desc: string; color: string; icon: string; onClick?: () => void }) {
   const colorMap: any = {
     emerald: 'bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black shadow-emerald-500/20',
     amber: 'bg-amber-500/20 text-amber-400 group-hover:bg-amber-500 group-hover:text-black shadow-amber-500/20',
@@ -111,7 +128,7 @@ function ModuleCard({ title, desc, color, icon }: { title: string; desc: string;
   };
 
   return (
-    <div className="glass-card p-8 rounded-[32px] flex flex-col items-start group">
+    <div className="glass-card p-8 rounded-[32px] flex flex-col items-start group relative">
       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-12 transition-all duration-500 shadow-2xl ${colorMap[color]}`}>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
@@ -121,7 +138,10 @@ function ModuleCard({ title, desc, color, icon }: { title: string; desc: string;
       <p className="text-white/40 text-sm leading-relaxed mb-8 group-hover:text-white/60 transition-colors">
         {desc}
       </p>
-      <button className="mt-auto px-4 py-2 border border-white/10 rounded-xl text-xs font-bold hover:bg-white hover:text-black transition-all">
+      <button 
+        onClick={onClick}
+        className="mt-auto px-4 py-2 border border-white/10 rounded-xl text-xs font-bold hover:bg-white hover:text-black transition-all"
+      >
         Launch Simulation
       </button>
     </div>

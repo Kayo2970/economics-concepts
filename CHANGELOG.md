@@ -4,6 +4,21 @@ All changes made by the AI coding agent are recorded here.
 
 ---
 
+## 2026-04-01T07:05:00
+
+**Agent Action:** Integrated and refactored the Supply & Demand module.
+
+**Changes:**
+- Refactored `SupplyDemandSandbox.tsx` and `SupplyDemandChart.tsx` to match the premium dark theme.
+- Integrated `SupplyDemandSandbox` into the main `page.tsx` using React state for seamless navigation.
+- Enhanced the chart with custom glassmorphism tooltips, better stroke weights, and animated equilibrium points.
+- Improved control sliders with accent colors and real-time "Market Analysis" statistics.
+- Fixed several lint errors including duplicate default exports.
+
+**Files Affected:** `interactive-explorer/src/app/page.tsx`, `interactive-explorer/src/modules/SupplyDemandSandbox.tsx`, `interactive-explorer/src/components/charts/SupplyDemandChart.tsx`
+
+---
+
 ## 2026-04-01T06:59:00
 
 **Agent Action:** Implemented the premium landing page.
