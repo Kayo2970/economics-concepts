@@ -4,6 +4,15 @@ A comprehensive reference guide to foundational and advanced economics concepts 
 
 ---
 
+## 🚀 The Application
+
+We are building the **Interactive Economics Explorer**, a Next.js-powered web app that brings these concepts to life.
+
+- **App Directory:** [`./interactive-explorer/`](./interactive-explorer/)
+- **Project Goal:** Translate abstract economic theories (like Supply & Demand) into interactive, tactile experiences.
+
+---
+
 ## Table of Contents
 
 1. [What is Economics?](#what-is-economics)
