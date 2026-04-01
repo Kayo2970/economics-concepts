@@ -5,6 +5,10 @@ import SupplyDemandSandbox from "@/modules/SupplyDemandSandbox";
 import ElasticityRevenue from "@/modules/ElasticityRevenue";
 import OpportunityCostPPF from "@/modules/OpportunityCostPPF";
 import UtilityPizzaParty from "@/modules/UtilityPizzaParty";
+import ForecastingLab from "@/modules/ForecastingLab";
+import ConsumerEquilibrium from "@/modules/ConsumerEquilibrium";
+import MarketMatrix from "@/modules/MarketMatrix";
+import PolicyBalancer from "@/modules/PolicyBalancer";
 
 export default function Home() {
   const [activeModule, setActiveModule] = useState<string | null>(null);
@@ -19,6 +23,14 @@ export default function Home() {
         return <OpportunityCostPPF onBack={() => setActiveModule(null)} />;
       case 'pizza-utility':
         return <UtilityPizzaParty onBack={() => setActiveModule(null)} />;
+      case 'forecasting':
+        return <ForecastingLab onBack={() => setActiveModule(null)} />;
+      case 'equilibrium':
+        return <ConsumerEquilibrium onBack={() => setActiveModule(null)} />;
+      case 'market-matrix':
+        return <MarketMatrix onBack={() => setActiveModule(null)} />;
+      case 'policy-balancer':
+        return <PolicyBalancer onBack={() => setActiveModule(null)} />;
       default:
         return null;
     }
@@ -86,7 +98,7 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Focus Concepts</h2>
-            <p className="text-white/40 text-lg">Four foundational building blocks, each with a custom built simulation sandbox.</p>
+            <p className="text-white/40 text-lg">Eight foundational building blocks, each with a custom built simulation sandbox.</p>
           </div>
         </div>
 
@@ -119,6 +131,34 @@ export default function Home() {
             icon="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
             onClick={() => setActiveModule('ppf')}
           />
+          <ModuleCard 
+            title="Forecasting Lab"
+            desc="Predict future demand using linear regression and moving averages."
+            color="violet"
+            icon="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+            onClick={() => setActiveModule('forecasting')}
+          />
+          <ModuleCard 
+            title="Consumer Equilibrium"
+            desc="Finding the optimal consumption bundle given a budget constraint."
+            color="indigo"
+            icon="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            onClick={() => setActiveModule('equilibrium')}
+          />
+          <ModuleCard 
+            title="Market Matrix"
+            desc="Explore different market structures from competition to monopoly."
+            color="orange"
+            icon="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+            onClick={() => setActiveModule('market-matrix')}
+          />
+          <ModuleCard 
+            title="Policy Balancer"
+            desc="Simulate the impact of monetary and fiscal policy on macro indicators."
+            color="cyan"
+            icon="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+            onClick={() => setActiveModule('policy-balancer')}
+          />
         </div>
       </section>
 
@@ -146,6 +186,10 @@ function ModuleCard({ title, desc, color, icon, onClick }: { title: string; desc
     amber: 'bg-amber-500/20 text-amber-400 group-hover:bg-amber-500 group-hover:text-black shadow-amber-500/20',
     blue: 'bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-black shadow-blue-500/20',
     rose: 'bg-rose-500/20 text-rose-400 group-hover:bg-rose-500 group-hover:text-black shadow-rose-500/20',
+    violet: 'bg-violet-500/20 text-violet-400 group-hover:bg-violet-500 group-hover:text-black shadow-violet-500/20',
+    indigo: 'bg-indigo-500/20 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-black shadow-indigo-500/20',
+    orange: 'bg-orange-500/20 text-orange-400 group-hover:bg-orange-500 group-hover:text-black shadow-orange-500/20',
+    cyan: 'bg-cyan-500/20 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black shadow-cyan-500/20',
   };
 
   return (

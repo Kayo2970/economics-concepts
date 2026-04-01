@@ -2,8 +2,6 @@
 
 import React from "react";
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -12,7 +10,7 @@ import {
   Label,
   ReferenceDot,
   Legend,
-  Area,
+  Line,
   ComposedChart
 } from "recharts";
 import { Point } from "@/utils/economicsMath";
@@ -22,7 +20,7 @@ interface Props {
   mrPoints: Point[];
   mcPoints: Point[];
   equilibrium: Point | null;
-  mode: "perfect" | "monopoly";
+  mode: "perfect" | "monopoly" | "oligopoly";
 }
 
 const MarketStructureChart: React.FC<Props> = ({ 
@@ -57,7 +55,7 @@ const MarketStructureChart: React.FC<Props> = ({
             <Label value="Price (P) / Cost (C)" angle={-90} position="insideLeft" style={{ textAnchor: "middle" }} offset={0} fill="rgba(255, 255, 255, 0.2)" fontSize={10} fontWeight="800" className="uppercase tracking-[0.2em]" />
           </YAxis>
           <Tooltip 
-            contentStyle={{ backgroundColor: "rgba(15, 23, 42, 0.9)", backdropFilter: "blur(8px)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "16px", color: "#fff", padding: "12px", boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.5)" }}
+            contentStyle={{ backgroundColor: "rgba(15, 23, 42, 0.9)", backdropFilter: "blur(8px)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "16px", color: "#fff", padding: "12px", boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.5)" }}
             itemStyle={{ color: "#fff", fontSize: "14px", fontWeight: 700 }}
             labelStyle={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "10px", marginBottom: "4px", fontWeight: 800, textTransform: "uppercase" }}
           />
@@ -74,7 +72,7 @@ const MarketStructureChart: React.FC<Props> = ({
             isAnimationActive={true}
           />
           
-          {mode === "monopoly" && (
+          {(mode === "monopoly" || mode === "oligopoly") && (
             <Line
               data={mrPoints}
               type="monotone"
@@ -82,7 +80,7 @@ const MarketStructureChart: React.FC<Props> = ({
               stroke="#f43f5e"
               strokeWidth={3}
               dot={false}
-              name="Marginal Revenue (MR)"
+              name={mode === "monopoly" ? "Marginal Revenue (MR)" : "Industry MR"}
               strokeDasharray="5 5"
               isAnimationActive={true}
             />
@@ -109,7 +107,7 @@ const MarketStructureChart: React.FC<Props> = ({
               strokeWidth={3}
             >
               <Label
-                value={mode === "monopoly" ? "PROFIT MAX (MR=MC)" : "EQUILIBRIUM"}
+                value={mode === "monopoly" ? "MONOPOLY" : mode === "oligopoly" ? "OLIGOPOLY" : "PERFECT COMP."}
                 position="top"
                 offset={15}
                 fill="#fbbf24"

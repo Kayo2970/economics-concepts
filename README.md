@@ -12,9 +12,9 @@ We are building the **Interactive Economics Explorer**, a Next.js-powered web ap
 - **Project Goal:** Translate abstract economic theories (like Supply & Demand) into interactive, tactile experiences.
 - **Current Status:**
     - [x] Premium Landing Page implemented.
-    - [x] **Core Simulations Live (4/4):** Supply & Demand, Price Elasticity, Opportunity Cost (PPF), and Marginal Utility are all fully interactive and connected.
-    - [x] **Refactoring:** OpportunityCostPPF component structure simplified for better maintainability.
-    - [ ] **Roadmap (Next):** Implement Managerial Economics modules (Forecasting Lab, Consumer Choice, Market Matrix).
+    - [x] **Core Simulations Live (4/4):** Supply & Demand, Price Elasticity, Opportunity Cost (PPF), and Marginal Utility.
+    - [x] **Managerial Extensions Live (4/4):** Forecasting, Consumer Choice (IC), Market Matrix, and Macro Policy Balancer.
+    - [x] **Portfolio Ready:** Fully integrated and featured on the [Main Portfolio Website](https://github.com/Kayo2970/Portfolio).
 
 ---
 
