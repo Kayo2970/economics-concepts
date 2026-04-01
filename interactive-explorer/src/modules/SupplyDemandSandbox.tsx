@@ -5,11 +5,7 @@ import { useSimulationStore } from "@/store/useSimulationStore";
 import { calculateEquilibrium, generateLinearPoints } from "@/utils/economicsMath";
 import SupplyDemandChart from "@/components/charts/SupplyDemandChart";
 
-interface Props {
-  onBack: () => void;
-}
-
-const SupplyDemandSandbox: React.FC<Props> = ({ onBack }) => {
+export default function SupplyDemandSandbox({ onBack }: { onBack: () => void }) {
   const { demand, supply, setDemand, setSupply } = useSimulationStore();
 
   const maxPrice = 100;
@@ -151,5 +147,3 @@ function Slider({ label, min, max, value, onChange, color, step = 1 }: { label: 
     </div>
   );
 }
-
-export default SupplyDemandSandbox;
