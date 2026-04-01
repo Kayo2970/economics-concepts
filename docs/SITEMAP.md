@@ -18,6 +18,12 @@ graph TD
     Modules --> Elasticity[📏 The Rubber Band (Price Elasticity)]
     Modules --> OppCost[⏳ The 24-Hour Pie (Opportunity Cost)]
     
+    %% Managerial Economics Extensions
+    Modules --> Forecasting[🔮 The Forecast Lab (Regression Analysis)]
+    Modules --> Consume[🍰 Indifference Curve (Consumer Choice)]
+    Modules --> Compare[⚔️ Market Matrix (Compare Structures)]
+    Modules --> Policy[🏦 The Policy Balancer (Macro Tools)]
+    
     %% Sub-views inside Modules
     SupDem --> SupDemInfo[Theory Breakdown]
     SupDem --> SupDemPlay[Interactive Simulation]

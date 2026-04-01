@@ -39,6 +39,34 @@
     *   An interactive pie chart or a 2D PPF curve (Goods X vs Goods Y).
     *   When the user attempts to increase the output of Good X, the system *must mathematically force* a decrease in Good Y to maintain the constraint.
 
+### Module 5: Demand Forecasting Lab (Quantitative Methods)
+*   **User Story:** As a managerial economics student, I want to see how different forecasting methods (Moving Average vs. Regression) fit historical data.
+*   **Requirements:**
+    *   A dataset plotting area with "noisy" historical demand points.
+    *   Toggles for "3-Month Moving Average", "Weighted Moving Average", and "Linear Trend".
+    *   The ability to slide a "Future Work" handle to see the projected forecast line extend.
+
+### Module 6: Consumer Equilibrium (Indifference Curve Analysis)
+*   **User Story:** As a student, I want to find the utility-maximizing point where my budget line is tangent to an indifference curve.
+*   **Requirements:**
+    *   A graph showing multiple convex Indifference Curves (IC1, IC2, IC3).
+    *   A draggable "Budget Line" where the user can change the Price of Good X and Price of Good Y.
+    *   Visual feedback showing the "Tangency Point" and the resulting Consumer Surplus.
+
+### Module 7: The Market Structure Matrix
+*   **User Story:** As a student, I want to compare how price and quantity differ between Perfect Competition, Monopoly, and Oligopoly.
+*   **Requirements:**
+    *   A single graph area where a user can toggle between different "Market Modes."
+    *   *Monopoly Mode:* Shows the MR curve below the Demand curve and highlights the Deadweight Loss area.
+    *   *Oligopoly Mode:* Demonstrates the "Kinked Demand Curve" model.
+
+### Module 8: The Policy Balancer (Fiscal vs. Monetary)
+*   **User Story:** As a student, I want to see how changing the Repo Rate (Monetary) or GST/Spending (Fiscal) affects GDP and Inflation.
+*   **Requirements:**
+    *   Dual dashboard: "Central Bank" controls and "Government" controls.
+    *   A "Macro-Dial" showing GDP status (Recession to Overheating).
+    *   Interactive levers that illustrate time lags (Monetary policy effect takes longer than Fiscal changes).
+
 ## 4. Non-Functional Requirements
 *   **Performance:** All chart re-renders and slider changes must happen at a minimum of 60 FPS to ensure the interaction feels "physical" and real-time.
 *   **Responsiveness:** The layout must be fluid. Graphs must resize using responsive containers (e.g., CSS Grid/Flexbox) for both desktop monitors and tablets.

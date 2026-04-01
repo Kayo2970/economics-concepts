@@ -34,3 +34,14 @@ export const calculateMarginalUtility = (totalUtilities: number[]): number[] => 
   }
   return marginalUtilities;
 };
+export const generatePPFPoints = (totalResources: number, pointsCount: number = 50): Point[] => {
+  const points: Point[] = [];
+  // Using a concave down function: y = sqrt(R^2 - x^2)
+  const R = Math.sqrt(totalResources);
+  for (let i = 0; i <= pointsCount; i++) {
+    const x = (R / pointsCount) * i;
+    const y = Math.sqrt(Math.max(0, totalResources - x * x));
+    points.push({ x: Math.round(x * 100) / 100, y: Math.round(y * 100) / 100 });
+  }
+  return points;
+};

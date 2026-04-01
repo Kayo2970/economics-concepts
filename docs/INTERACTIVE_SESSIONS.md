@@ -70,3 +70,30 @@ This document outlines the specific UI/UX designs and interactive components we 
     *   *Study hours up =* "Future Earnings Potential" score increases.
     *   *Sleep hours down =* "Next-Day Productivity" score plummets.
     *   This demonstrates that every choice has an *implicit* cost.
+
+---
+
+## 5. Demand Forecasting: The Predictive Playground
+**Goal:** Visualize how historical trends inform future business decisions.
+
+### The UI Layout:
+*   A scatter plot showing historical data points (e.g., umbrella sales by month).
+*   Toggle buttons labeled "Linear Trend" and "Moving Average."
+
+### The Interactive Mechanics:
+1.  **"Trend Drag":** As a student moves a singular historical data point up or down, the calculated regression line *lives-tilts* and recalculates its intercept.
+2.  **"Scenario Forecast":** A slider that extends the line into the next 12 months, highlighting the confidence interval.
+
+---
+
+## 6. Consumer Equilibrium: The IC & Budget Balancer
+**Goal:** Find the perfect consumption bundle given a limited budget.
+
+### The UI Layout:
+*   Left: A graph with Income (Y) and Quantity (X).
+*   Right: Sliders for "Good X Price", "Good Y Price", and "Income."
+
+### The Interactive Mechanics:
+1.  **Budget Line Manipulation:** As prices change, the Budget Line pivots on the X or Y axis.
+2.  **The Sweet Spot:** The Indifference Curve (IC) remains fixed. The student must manipulate the budget to reach the highest IC possible.
+3.  **Optimal Bundle Pop-up:** When the Budget Line is perfectly tangent to the IC, a glowing dot appears at the equilibrium with the label "Utility Maximized!"

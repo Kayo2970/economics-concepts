@@ -41,6 +41,23 @@
 *   Equilibrium Point `(P*, Q*)` is found where \( Q_s = Q_d \).
 *   **The Shift Mechanism:** When a user pulls a "Consumer Income" slider, the app modifies the intercept variable (\(a\)) of the demand equation and recalculates the equilibrium point.
 
+### New Module Math Specs:
+
+#### 1. Demand Forecasting (Linear Trend)
+*   **Slope (b):** \([n(\Sigma ty) - (\Sigma t)(\Sigma y)] / [n(\Sigma t^2) - (\Sigma t)^2]\)
+*   **Intercept (a):** \([\Sigma y - b(\Sigma t)] / n\)
+*   *Application:* The app will take user-moved "history points" (t, y) and dynamically solve for `a` and `b` to render the predictive line.
+
+#### 2. Consumer Equilibrium (Ordinal IC Approach)
+*   **Marginal Rate of Substitution (MRS):** \( \Delta Y / \Delta X \)
+*   **Condition:** Equilibrium exists where \( MRS_{xy} = P_x / P_y \).
+*   *Visual:* The app will render \( Y = k / X \) for Indifference Curves (Convex) and \( Y = (Income/P_y) - (P_x/P_y)X \) for the Budget Line. Solving for the tangency point.
+
+#### 3. Macroeconomic Policy Simulation
+*   **Repo Rate Impact:** Inverse relationship with Investment (I).
+*   **Fiscal Impact:** Multiplier effect \( 1 / (1 - MPC) \).
+*   The system uses a simple model to show how increasing interest rates (Repo) dampens GDP output while increasing Government Spending (G) expands it.
+
 ## 4. Design Guidelines (UI/UX)
 **Theme:** "Modern Academia." Clean, polished, and vibrant.
 **Color Palette:**
