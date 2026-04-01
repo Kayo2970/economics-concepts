@@ -5,6 +5,7 @@
 After making ANY change to files in this project, you MUST:
 
 1. **Update README.md** — reflect the current state of the project (what exists, what was added/changed)
+along with that humainzed version of it so that the reader can understand 
 2. **Update CHANGELOG.md** — append a new entry with:
    - Date and time (ISO format)
    - What the AI coding agent did (clear description of changes made)
