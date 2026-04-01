@@ -24,9 +24,9 @@ export default function OpportunityCostPPF({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white font-sans">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Production Possibilities Frontier</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Production Possibilities Frontier</h1>
           <p className="text-white/40 max-w-2xl">Discover the law of increasing opportunity costs. As you produce more of one good, you must give up increasing amounts of the other.</p>
         </div>
         <button 
@@ -39,13 +39,13 @@ export default function OpportunityCostPPF({ onBack }: { onBack: () => void }) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <PPFChart ppfPoints={ppfPoints} currentPoint={currentPoint} />
           </div>
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="glass-card p-10 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-10 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <div className="w-5 h-5 rounded-full bg-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.6)]" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Resource Allocation</h2>
@@ -88,7 +88,7 @@ export default function OpportunityCostPPF({ onBack }: { onBack: () => void }) {
             </div>
           </div>
 
-          <div className="glass-card p-10 rounded-[32px] border-rose-500/20 bg-rose-500/5 shadow-[0_0_80px_rgba(244,63,94,0.05)]">
+          <div className="glass-card p-6 md:p-10 rounded-[32px] border-rose-500/20 bg-rose-500/5 shadow-[0_0_80px_rgba(244,63,94,0.05)]">
             <div className="flex items-center gap-3 mb-6 text-rose-400">
               <ArrowRightLeft className="w-5 h-5" />
               <h3 className="font-bold uppercase text-xs tracking-[0.2em]">Opportunity Cost</h3>

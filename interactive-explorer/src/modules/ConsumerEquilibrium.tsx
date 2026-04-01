@@ -31,9 +31,9 @@ export default function ConsumerEquilibrium({ onBack }: { onBack: () => void }) 
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white font-sans">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Consumer Equilibrium</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Consumer Equilibrium</h1>
           <p className="text-white/40 max-w-2xl">Find the utility-maximizing combination of goods given your budget constraint. Where the budget line meets the highest indifference curve.</p>
         </div>
         <button 
@@ -46,7 +46,7 @@ export default function ConsumerEquilibrium({ onBack }: { onBack: () => void }) 
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <IndifferenceChart 
               indifferencePoints={indifferencePoints}
               budgetPoints={budgetPoints}
@@ -56,7 +56,7 @@ export default function ConsumerEquilibrium({ onBack }: { onBack: () => void }) 
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <Wallet className="w-5 h-5 text-emerald-400" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Budget & Prices</h2>
@@ -87,7 +87,7 @@ export default function ConsumerEquilibrium({ onBack }: { onBack: () => void }) 
             </div>
           </div>
 
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <ShoppingBag className="w-5 h-5 text-amber-400" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Preferences (Alpha)</h2>

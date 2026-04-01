@@ -9,6 +9,7 @@ import ForecastingLab from "@/modules/ForecastingLab";
 import ConsumerEquilibrium from "@/modules/ConsumerEquilibrium";
 import MarketMatrix from "@/modules/MarketMatrix";
 import PolicyBalancer from "@/modules/PolicyBalancer";
+import DynamicBackground from "@/components/layout/DynamicBackground";
 
 export default function Home() {
   const [activeModule, setActiveModule] = useState<string | null>(null);
@@ -38,71 +39,56 @@ export default function Home() {
 
   if (activeModule) {
     return (
-      <div className="min-h-screen relative bg-[#0a0a0a] text-white flex flex-col font-sans overflow-x-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-grid z-0 opacity-40" />
+      <div className="min-h-screen relative bg-transparent text-white flex flex-col font-sans overflow-x-hidden">
+        <DynamicBackground />
         {renderModule()}
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen relative bg-[#0a0a0a] text-white flex flex-col font-sans overflow-x-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full bg-grid z-0 opacity-40" />
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-500/10 blur-[150px] -z-10 animate-pulse rounded-full" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[150px] -z-10 animate-pulse rounded-full" />
-
+    <div className="min-h-screen relative bg-transparent text-white flex flex-col font-sans overflow-x-hidden">
+      <DynamicBackground />
       {/* Navbar Container */}
-      <nav className="z-10 flex items-center justify-between px-8 py-6 w-full max-w-7xl mx-auto border-b border-white/5 backdrop-blur-md sticky top-0">
-        <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all group-hover:scale-110">
+      <nav className="z-10 flex items-center justify-between px-6 md:px-10 py-3 md:py-4 w-full max-w-7xl mx-auto border-b border-white/[0.03] backdrop-blur-xl sticky top-4 mt-4 rounded-full glass">
+        <div className="flex items-center gap-3 group cursor-pointer">
+          <div className="w-9 h-9 bg-indigo-500 rounded-xl flex items-center justify-center font-bold text-white shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-all group-hover:scale-110">
             E
           </div>
           <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
             EconExplorer
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/50">
-          <a href="#about" className="hover:text-white transition-colors">Theory</a>
-          <a href="#modules" className="hover:text-white transition-colors">Simulations</a>
-          <a href="#resources" className="hover:text-white transition-colors">Resources</a>
+        <div className="hidden md:flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-white/40">
+          <a href="#about" className="hover:text-indigo-400 transition-colors">Theory</a>
+          <a href="#modules" className="hover:text-indigo-400 transition-colors">Simulations</a>
+          <a href="#resources" className="hover:text-indigo-400 transition-colors">Resources</a>
         </div>
-        <button className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-white/90 transition-all hover:scale-105 shadow-lg shadow-white/5">
+        <button className="px-6 py-2.5 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-400 hover:text-white transition-all hover:scale-105 shadow-lg shadow-white/5">
           Get Started
         </button>
       </nav>
 
       {/* Hero Section */}
-      <header className="relative z-10 flex flex-col items-center justify-center text-center px-4 pt-32 pb-24 max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 mb-8 uppercase tracking-widest animate-fade-in">
+      <header className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-24 pb-12 md:pt-40 md:pb-16 max-w-5xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-black text-indigo-400 mb-10 uppercase tracking-[0.2em] animate-fade-in shadow-[0_0_15px_rgba(99,102,241,0.1)]">
           Interactive Learning Platform
         </div>
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter leading-[1.1] bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent drop-shadow-2xl">
-          Visualizing the Core Forces of Economics
+        <h1 className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.95] bg-gradient-to-b from-white via-white to-white/30 bg-clip-text text-transparent drop-shadow-2xl text-center">
+          Visualizing the <br/> Core Forces of Economics
         </h1>
-        <p className="text-lg md:text-xl text-white/50 mb-12 max-w-2xl leading-relaxed">
-          Abstract theories transformed into tactile simulations. Drag, slide, and experiment with the invisible hands that shape our world.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <a href="#modules" className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl transition-all hover:scale-105 shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-            Explore Simulations
-          </a>
-          <button className="px-8 py-4 glass text-white font-bold rounded-2xl transition-all hover:bg-white/10">
-            View Design Spec
-          </button>
-        </div>
       </header>
 
       {/* Interactive Modules Section */}
-      <section id="modules" className="z-10 w-full max-w-7xl mx-auto px-6 py-24">
-        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+      <section id="modules" className="z-10 w-full max-w-7xl mx-auto px-6 pt-0 pb-24">
+        <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Focus Concepts</h2>
-            <p className="text-white/40 text-lg">Eight foundational building blocks, each with a custom built simulation sandbox.</p>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">Focus Concepts</h2>
+            <p className="text-white/30 text-xl leading-relaxed">Eight foundational building blocks, each with a custom built simulation sandbox.</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <ModuleCard 
             title="Supply & Demand"
             desc="The fundamental relationship that determines market clearing prices."
@@ -163,16 +149,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="z-10 mt-auto border-t border-white/5 py-12 px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-white/30 text-xs font-medium">
-          <div className="flex items-center gap-2">
-             <div className="w-5 h-5 bg-white/10 rounded-sm" />
+      <footer className="z-10 mt-auto border-t border-white/[0.03] py-16 px-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-white/20 text-[10px] font-black uppercase tracking-[0.2em]">
+          <div className="flex items-center gap-3">
+             <div className="w-6 h-6 bg-white/5 rounded-lg border border-white/5" />
              <span>© 2026 Interactive Economics Explorer</span>
-          </div>
-          <div className="flex items-center gap-8">
-             <a href="#" className="hover:text-white transition-colors">Documentation</a>
-             <a href="#" className="hover:text-white transition-colors">GitHub</a>
-             <a href="#" className="hover:text-white transition-colors">Design Docs</a>
           </div>
         </div>
       </footer>
@@ -180,32 +161,32 @@ export default function Home() {
   );
 }
 
-function ModuleCard({ title, desc, color, icon, onClick }: { title: string; desc: string; color: string; icon: string; onClick?: () => void }) {
+function ModuleCard({ title, desc, color, icon, onClick }: { title: string; desc: string; color: string; icon: string; onClick: () => void }) {
   const colorMap: any = {
-    emerald: 'bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black shadow-emerald-500/20',
-    amber: 'bg-amber-500/20 text-amber-400 group-hover:bg-amber-500 group-hover:text-black shadow-amber-500/20',
-    blue: 'bg-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-black shadow-blue-500/20',
-    rose: 'bg-rose-500/20 text-rose-400 group-hover:bg-rose-500 group-hover:text-black shadow-rose-500/20',
-    violet: 'bg-violet-500/20 text-violet-400 group-hover:bg-violet-500 group-hover:text-black shadow-violet-500/20',
-    indigo: 'bg-indigo-500/20 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-black shadow-indigo-500/20',
-    orange: 'bg-orange-500/20 text-orange-400 group-hover:bg-orange-500 group-hover:text-black shadow-orange-500/20',
-    cyan: 'bg-cyan-500/20 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black shadow-cyan-500/20',
+    emerald: 'bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black shadow-[0_0_20px_rgba(16,185,129,0.3)]',
+    amber: 'bg-amber-500/10 text-amber-400 group-hover:bg-amber-500 group-hover:text-black shadow-[0_0_20px_rgba(245,158,11,0.3)]',
+    blue: 'bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-black shadow-[0_0_20px_rgba(59,130,246,0.3)]',
+    rose: 'bg-rose-500/10 text-rose-400 group-hover:bg-rose-500 group-hover:text-black shadow-[0_0_20px_rgba(244,63,94,0.3)]',
+    violet: 'bg-violet-500/10 text-violet-400 group-hover:bg-violet-500 group-hover:text-black shadow-[0_0_20px_rgba(139,92,246,0.3)]',
+    indigo: 'bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-black shadow-[0_0_20px_rgba(99,102,241,0.3)]',
+    orange: 'bg-orange-500/10 text-orange-400 group-hover:bg-orange-500 group-hover:text-black shadow-[0_0_20px_rgba(249,115,22,0.3)]',
+    cyan: 'bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black shadow-[0_0_20px_rgba(6,182,212,0.3)]',
   };
 
   return (
-    <div className="glass-card p-8 rounded-[32px] flex flex-col items-start group relative">
-      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-12 transition-all duration-500 shadow-2xl ${colorMap[color]}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={icon} />
+    <div className="glass-card p-10 rounded-[32px] flex flex-col items-start group relative overflow-hidden">
+      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-16 transition-all duration-700 ${colorMap[color]}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={icon} />
         </svg>
       </div>
-      <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors tracking-tight">{title}</h3>
-      <p className="text-white/40 text-sm leading-relaxed mb-8 group-hover:text-white/60 transition-colors">
+      <h3 className="text-2xl font-black mb-4 group-hover:text-white transition-colors tracking-tighter">{title}</h3>
+      <p className="text-white/30 text-sm leading-relaxed mb-12 group-hover:text-white/50 transition-colors font-medium">
         {desc}
       </p>
       <button 
         onClick={onClick}
-        className="mt-auto w-full py-3 bg-white/5 border border-white/5 rounded-2xl text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all shadow-xl"
+        className="mt-auto w-full py-4 bg-white/5 border border-white/5 rounded-2xl text-[10px] font-black tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all shadow-2xl"
       >
         Launch Simulation
       </button>

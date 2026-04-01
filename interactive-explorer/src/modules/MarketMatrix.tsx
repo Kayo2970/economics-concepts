@@ -53,9 +53,9 @@ export default function MarketMatrix({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white font-sans">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Market Structure Matrix</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Market Structure Matrix</h1>
           <p className="text-white/40 max-w-2xl">Compare market outcomes under different structures. Observe how monopolies restrict output and raise prices compared to competitive markets.</p>
         </div>
         <button 
@@ -68,7 +68,7 @@ export default function MarketMatrix({ onBack }: { onBack: () => void }) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <MarketStructureChart 
               demandPoints={demandPoints}
               mrPoints={mrPoints}
@@ -80,7 +80,7 @@ export default function MarketMatrix({ onBack }: { onBack: () => void }) {
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-4">
             <h2 className="text-xl font-bold text-white/90 flex items-center gap-2 tracking-tight">
               <LayoutGrid className="w-5 h-5 text-blue-500" /> Structure Toggle
             </h2>
@@ -103,7 +103,7 @@ export default function MarketMatrix({ onBack }: { onBack: () => void }) {
             </p>
           </div>
 
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Market Parameters</h2>

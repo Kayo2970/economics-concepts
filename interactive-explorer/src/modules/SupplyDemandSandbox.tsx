@@ -28,9 +28,9 @@ const SupplyDemandSandbox: React.FC<Props> = ({ onBack }) => {
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold text-white tracking-tight drop-shadow-lg">Market Equilibrium Sandbox</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-lg">Market Equilibrium Sandbox</h1>
           <p className="text-white/40 max-w-2xl">Interact with the supply and demand curves to observe real-time market shifts. Watch the equilibrium point react as you modify shifters.</p>
         </div>
         <button 
@@ -43,7 +43,7 @@ const SupplyDemandSandbox: React.FC<Props> = ({ onBack }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <SupplyDemandChart 
               demandPoints={demandPoints} 
               supplyPoints={supplyPoints} 
@@ -54,7 +54,7 @@ const SupplyDemandSandbox: React.FC<Props> = ({ onBack }) => {
 
         <div className="flex flex-col gap-6">
           {/* Demand Controls */}
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Demand Shifters</h2>
@@ -79,7 +79,7 @@ const SupplyDemandSandbox: React.FC<Props> = ({ onBack }) => {
           </div>
 
           {/* Supply Controls */}
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Supply Shifters</h2>

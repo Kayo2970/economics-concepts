@@ -4,6 +4,18 @@ All changes made by the AI coding agent are recorded here.
 
 ---
 
+## 2026-04-01T08:20:00
+
+**Agent Action:** Visual UI Upgrade (v2) implemented.
+
+**Changes:**
+- **Dynamic Background:** Implemented a Framer Motion-driven ambient background with animated blobs and a clean grid overlay.
+- **Ultra-Dark Aesthetic:** Refined global CSS with ultra-dark backgrounds (`#030712`) and deeper glassmorphism filters.
+- **Micro-interactions:** Enhanced `ModuleCard` hover states with scale transforms and soft glow shadows.
+- **Global Stylings:** Implemented custom minimalist scrollbars and Inter font stack for a high-end managerial feel.
+
+---
+
 ## 2026-04-01T07:45:00
 
 **Agent Action:** Completed full 8-module suite and integrated with main Portfolio site.

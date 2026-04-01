@@ -35,9 +35,9 @@ export default function MacroPolicyBalancer({ onBack }: { onBack: () => void }) 
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white font-sans">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Macro Policy Balancer</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg leading-tight">Macro Policy Balancer</h1>
           <p className="text-white/40 max-w-2xl">Act as both the Central Bank and Government. Balance interest rates and fiscal spending to achieve stable growth without runaway inflation.</p>
         </div>
         <button 
@@ -50,7 +50,7 @@ export default function MacroPolicyBalancer({ onBack }: { onBack: () => void }) 
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <MacroDashboard 
               gdpGrowth={macroStats.gdpGrowth}
               inflation={macroStats.inflation}
@@ -60,7 +60,7 @@ export default function MacroPolicyBalancer({ onBack }: { onBack: () => void }) 
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6 border-blue-500/10">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6 border-blue-500/10">
             <div className="flex items-center gap-3">
               <Landmark className="w-5 h-5 text-blue-400" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Monetary Policy</h2>
@@ -76,7 +76,7 @@ export default function MacroPolicyBalancer({ onBack }: { onBack: () => void }) 
             <p className="text-[10px] text-white/30 italic">Lowering rates stimulates borrowing but can heat up inflation.</p>
           </div>
 
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6 border-emerald-500/10">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6 border-emerald-500/10">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               <h2 className="text-xl font-bold tracking-tight text-white/90">Fiscal Policy</h2>

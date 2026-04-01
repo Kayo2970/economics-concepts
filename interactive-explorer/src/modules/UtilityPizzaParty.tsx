@@ -36,9 +36,9 @@ export default function UtilityPizzaParty({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white font-sans">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg">Pizza Party: Utility Maximization</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg">Pizza Party: Utility Maximization</h1>
           <p className="text-white/40 max-w-2xl">Observe the Law of Diminishing Marginal Utility as you indulge in more slices.</p>
         </div>
         <button 
@@ -51,18 +51,18 @@ export default function UtilityPizzaParty({ onBack }: { onBack: () => void }) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <MarginalUtilityChart data={data} />
           </div>
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="glass-card p-12 rounded-[32px] flex flex-col items-center gap-6 shadow-[0_0_100px_rgba(255,255,255,0.05)]">
+          <div className="glass-card p-6 md:p-12 rounded-[32px] flex flex-col items-center gap-6 shadow-[0_0_100px_rgba(255,255,255,0.05)]">
             <div className="text-8xl animate-bounce drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">{getEmoji()}</div>
             <p className="text-center font-bold text-white/80 h-12 leading-tight text-xl tracking-tight">{getStatusText()}</p>
           </div>
 
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 rounded-full bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]" />
               <h2 className="text-xl font-bold tracking-tight text-white/90 uppercase text-xs tracking-widest">Consumption Level</h2>

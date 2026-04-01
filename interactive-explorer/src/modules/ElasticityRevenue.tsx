@@ -19,9 +19,9 @@ export default function ElasticityRevenue({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="flex flex-col gap-8 p-6 md:p-8 max-w-7xl mx-auto min-h-screen relative z-10 text-white">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-lg">Price Elasticity & Revenue</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg">Price Elasticity & Revenue</h1>
           <p className="text-white/40 max-w-2xl">Explore how price changes affect total revenue based on good type (Necessities vs. Luxuries).</p>
         </div>
         <button 
@@ -34,7 +34,7 @@ export default function ElasticityRevenue({ onBack }: { onBack: () => void }) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[500px]">
+          <div className="glass p-6 rounded-[32px] border-white/5 shadow-2xl relative overflow-hidden h-full min-h-[400px] md:min-h-[500px]">
             <ElasticityChart 
               demandPoints={demandPoints} 
               price={price} 
@@ -45,7 +45,7 @@ export default function ElasticityRevenue({ onBack }: { onBack: () => void }) {
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-4">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-4">
             <h2 className="text-xl font-bold text-white/90 flex items-center gap-2 tracking-tight">
               <Activity className="w-5 h-5 text-blue-500" /> Market Conditions
             </h2>
@@ -68,7 +68,7 @@ export default function ElasticityRevenue({ onBack }: { onBack: () => void }) {
             </p>
           </div>
 
-          <div className="glass-card p-8 rounded-[32px] flex flex-col gap-6">
+          <div className="glass-card p-6 md:p-8 rounded-[32px] flex flex-col gap-6">
             <div className="flex justify-between items-center">
                <h2 className="text-xl font-bold text-white/90 tracking-tight">Price Setting</h2>
                <span className="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-lg text-sm font-bold border border-amber-500/20">${price}</span>
