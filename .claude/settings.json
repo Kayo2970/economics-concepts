@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/kayo/Github/economics-concepts && git diff --quiet && git diff --staged --quiet || (CHANGED=$(git diff --stat HEAD 2>/dev/null || git diff --stat) && git add -A && git commit -m \"AI agent update: $(git diff --cached --stat | tail -1)\" && git push origin main)"
+          }
+        ]
+      }
+    ]
+  }
+}
