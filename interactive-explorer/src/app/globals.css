@@ -68,3 +68,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* Hide Next.js Development Indicator */
+#nextjs-static-indicator-container,
+[data-nextjs-indicator],
+#nextjs-static-indicator {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

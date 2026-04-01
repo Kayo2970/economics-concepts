@@ -4,6 +4,16 @@ All changes made by the AI coding agent are recorded here.
 
 ---
 
+## 2026-04-01T08:40:00
+
+**Agent Action:** UI Polish (Hidden Dev Indicators).
+
+**Changes:**
+- Implemented global CSS rules in `globals.css` to hide the **Next.js Static/Dynamic Indicator** and the **Build Activity Badge** from the website interface.
+- Cleaned up `next.config.ts` to ensure build stability while maintaining the hidden state.
+
+---
+
 ## 2026-04-01T08:30:00
 
 **Agent Action:** Resolved Explorer errors (Red files).
